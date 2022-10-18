@@ -1,25 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { FC, useEffect } from "react";
 
-function App() {
+import { ChakraProvider, Box, theme } from "@chakra-ui/react";
+
+import Header from "./components/header/header.component";
+import TodoListObserver from "./components/todo-list/todo-list.component";
+import TodoAdd from "./components/todo-add/todo-add.component";
+import store from "./store/store";
+
+const App: FC = () => {
+  useEffect(() => {
+    store.getData('./data.json');
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ChakraProvider theme={theme}>
+      <Box maxWidth="8xl" margin="auto" p={5}>
+        <Header />
+        <TodoListObserver />
+        <TodoAdd />
+      </Box>
+    </ChakraProvider>
   );
 }
 

@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "text": "learn MobX",
+    "done": true
+  },
+  {
+    "id": 2,
+    "text": "Check pull request",
+    "done": false
+  },
+  {
+    "id": 3,
+    "text": "sleep 8 hours",
+    "done": false
+  }
+]
